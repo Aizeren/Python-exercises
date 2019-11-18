@@ -29,9 +29,9 @@ def rk4(F, t0, x0, t, dt=0.1):
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def index(dt="0"):
+def index():
   result = ""
-  result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, dt=float(dt))
+  result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, 0.1)
   #return str(result_x)
   return "ququ"
   
