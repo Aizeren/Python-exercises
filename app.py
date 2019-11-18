@@ -31,10 +31,6 @@ app = Flask(__name__)
 def index(dt="0.1"):
     result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, dt = float(dt))
     return str(result_x[0])
-@app.route('/<dt>', methods=['GET', 'POST'])
-def index(dt="0.1"):
-    result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, dt = float(dt))
-    return str(result_x[0])
   
 if __name__ == '__main__':
     app.run()
