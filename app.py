@@ -32,7 +32,8 @@ app = Flask(__name__)
 def index(dt="0"):
   result = ""
   result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, dt=float(dt))
-  return str(result_x)
+  #return str(result_x)
+  return "ququ"
   
 if __name__ == '__main__':
   app.run()
