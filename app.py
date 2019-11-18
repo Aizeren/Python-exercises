@@ -28,10 +28,9 @@ def rk4(F, t0, x0, t, dt=0.1):
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
-    result = ""
-    result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, 0.1)
-    return str(result_x)
+def index(dt="0.1"):
+    result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, float(dt))
+    return str(result_x[0])
   
 if __name__ == '__main__':
     app.run()
