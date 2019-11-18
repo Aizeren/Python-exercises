@@ -1,5 +1,5 @@
-feedback
 import numpy as np
+from flask import Flask, request
 
 def f(t, x, g=9.8, l=1):
   theta, ang_vel  = x[0], x[1]
@@ -25,16 +25,16 @@ def rk4(F, t0, x0, t, dt=0.1):
   x_array[-1] = next_x(F, t_array[-2], x_array[-2], t_array[-1] - t_array[-2])
   return t_array, x_array
 
-
-
-from flask import Flask, request
 app = Flask(__name__)
 
-@app.route('/test', methods=['GET', 'POST'])
+@app.route("/test", methods=['GET', 'POST'])
 def index(dt="0"):
     result = ""
     result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, dt=float(dt))
     return str(result_x)
+@app.route("/")
+def main():
+    return "hello"
   
 if __name__ == '__main__':
     app.run()
