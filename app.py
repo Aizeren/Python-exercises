@@ -29,7 +29,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index(dt="0.1"):
-    result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, float(dt))
+    result_t, result_x = rk4(f, 0, np.array([np.pi/4, 0]), 100, dt = float(dt))
     return str(result_x[0])
   
 if __name__ == '__main__':
