@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-	return render_template('index.html')
+	return "hi"
 @app.route('/process_data/', methods=['POST'])
 def script():
 	return "Hello"    	
